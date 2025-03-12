@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "express": "^4.21.2",
+    "mysql2": "^3.13.0",
+    "sequelize": "^6.37.6"
+  },
+  "name": "project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Running tests...\""
+  },
+  "keywords": [],
+  "author": "zainab",
+  "license": "ISC",
+  "description": "full stack tech blog project using node.js, express, mysql and sequelize"
+}
