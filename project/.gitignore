@@ -1,5 +1,4 @@
-/node_modules/
-public/node_modules/
+main/node_modules/
 
 # Logs
 *.log

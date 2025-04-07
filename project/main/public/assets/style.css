@@ -1,15 +1,187 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+span {
+    color: #B4A59B;
+
+}
+/* Navbar Styling */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.9); /* Light transparent background */
+    padding: 0 40px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+    z-index: 100;
+}
+
+/* Logo */
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #1C1C1E;
+}
+
+/* Navbar Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1C1C1E;
+    transition: color 0.3s ease;
+}
+
+/* Styling for Login and Register Buttons */
+.nav-links a {
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+/* Login Button Style */
+.nav-links a.login {
+    background: #D6CCC2; /* Soft beige for login */
+}
+
+.nav-links a.login:hover {
+    background: #B4A59B; /* Darker beige for hover effect */
+}
+
+/* Register Button Style */
+.nav-links a.register {
+    background: #A68A64; /* Elegant warm gold for register */
+    color: white;
+}
+
+.nav-links a.register:hover {
+    background: #8C7252; /* Darker gold for hover effect */
+}
+
+/* Full-Page Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, #F8F9FA, #EAEAEA);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Hero Content */
+.content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: #1C1C1E;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.content p {
+    font-size: 1.5rem;
+    color: #444;
+    margin-top: 10px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Explore Button */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    background: #A68A64;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 2.5s ease-in-out;
+}
+
+.btn:hover {
+    background: #8C7252;
+    transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content h1 {
+        font-size: 2.5rem;
+    }
+
+    .content p {
+        font-size: 1.2rem;
+    }
+
+    .btn {
+        font-size: 1rem;
+        padding: 10px 25px;
+    }
+
+    .navbar {
+        padding: 0 20px;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+}
+
+------------
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: oklch(71.4% 0.203 305.504);
     text-align: center;
-    margin: 0;
+    margin: 50px;
     padding: 20px;
 }
 
 .container {
     max-width: 400px;
     margin: auto;
-    background: white;
+    margin-top: 80px;
+    background: oklch(94.6% 0.033 307.174);
+    /* background:#e9ecef */
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -31,6 +203,7 @@ textarea {
     box-sizing: border-box;
     margin-top: 6px;
     margin-bottom: 10px;
+    
 }
 
 input[type="submit"] {
@@ -42,7 +215,10 @@ input[type="submit"] {
     color: #ffffff;
     font-size: 16px;
 }
-
+.bg{
+    background: #91a7ff;
+}
 .hidden {
     display: none;
-}
+}  
+/* REGISTER/LOGIN STYLING */

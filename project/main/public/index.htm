@@ -4,38 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login & Registration</title>
+    <title>Home</title>
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 
 <body>
-    <div class="container" id="auth-container">
-        <h2>Register</h2>
-        <input type="text" id="username" placeholder="Username">
-        <input type="email" id="email" placeholder="Email">
-        <input type="password" id="password" placeholder="Password">
-        <button onclick="register()">Register</button>
-        <hr>
-        <h2>Login</h2>
-        <input type="email" id="login-email" placeholder="Email">
-        <input type="password" id="login-password" placeholder="Password">
-        <button onclick="login()">Login</button>
-    </div>
+    <!-- Navbar -->
+    <nav class="navbar">
+    <div class="logo"><span>tech</span>BLOG</div>
+        <ul class="nav-links">
+            <li><a href="/login" class="btn">Login | Register</a></li>
+        </ul>
+    </nav>
 
-    <div class="container hidden" id="app-container">
-        <h2>Welcome</h2>
-        <button onclick="logout()">Logout</button>
-        <hr>
-        <h2>Create a Post</h2>
-        <input type="text" id="post-title" placeholder="Title">
-        <textarea id="post-content" placeholder="Content"></textarea>
-        <button onclick="createPost()">Submit Post</button>
-        <hr>
-        <h2>Posts</h2>
-        <button onclick="fetchPosts()">Load Posts</button>
-        <div id="posts"></div>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="content">
+            <h1>Your Voice, Your Story</h1>
+            <!-- <p>Start Blogging Today!</p> -->
+            <a href="/login" class="btn">Start Blogging Today</a>
+        </div>
     </div>
-
     <script src="./assets/script.js"></script>
 </body>
 

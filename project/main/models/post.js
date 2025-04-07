@@ -14,6 +14,10 @@ Post.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
+    category: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
     postedBy: {
       type: DataTypes.TEXT,
       allowNull: false,
