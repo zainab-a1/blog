@@ -78,14 +78,60 @@ function fetchPosts() {
       postsContainer.innerHTML = "";
       posts.forEach((post) => {
         const div = document.createElement("div");
-        div.innerHTML = `<h3>${post.title}</h3><p>${
-          post.content
-        }</p><small>By: ${post.postedBy} on ${new Date(
-          post.createdOn
-        ).toLocaleString()}</small>`;
+        div.innerHTML = `
+          <h3>${post.title}</h3>
+          <p>${post.content}</p>
+          <small>By: ${post.postedBy} on ${new Date(post.createdOn).toLocaleString()}</small>
+          <button onclick="updatePost(${post.id})">Update</button>
+          <button onclick="deletePost(${post.id})">Delete</button>
+        `;
         postsContainer.appendChild(div);
       });
     });
+}
+
+function updatePost(postId) {
+  // Prompt user for new post details
+  const newTitle = prompt("Enter the new title:");
+  const newContent = prompt("Enter the new content:");
+
+  if (newTitle && newContent) {
+    fetch(`http://localhost:3001/api/posts/${postId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ title: newTitle, content: newContent }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+          fetchPosts();
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("An error occurred while updating the post");
+      });
+  }
+}
+
+function deletePost(postId) {
+  if (confirm("Are you sure you want to delete this post?")) {
+    fetch(`http://localhost:3001/api/posts/${postId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+          fetchPosts();
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("An error occurred while deleting the post");
+      });
+  }
 }
 
 function createPost() {

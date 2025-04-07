@@ -30,21 +30,18 @@
         <input type="text" id="post-title" placeholder="Title">
         <textarea id="post-content" placeholder="Content"></textarea>
         <input type="text" id="post-category" placeholder="Category">
-        <button onclick="createPost()">Submit Post</button>
+        <button id ="submit-button" onclick="createPost()">Submit Post</button>
         <hr>
         <h2>Filter by Category</h2>
         <select id="category-filter">
         <option value="">All Categories</option> <!-- 🔹 Default option -->
         </select>
         <button onclick="fetchPosts()">Reset</button> <!-- 🔹 Reset filter -->
-        <h2>Posts</h2> -->
+        <h2>Posts</h2>
         <!-- text box for filtering, i will do this -->
         <button onclick="fetchPosts()">Load Posts</button>
         <div id="posts"></div>
     </div> 
-
- 
-
     <script src="./assets/script.js"></script>
 </body>
 
