@@ -225,7 +225,8 @@ textarea:focus {
 /* Submit Button */
 input[type="submit"], button {
     border: none;
-    background: #4aaaa5;
+    /* background: #4aaaa5; */
+    background: #A68A64;
     padding: 12px 20px;
     border-radius: 8px;
     cursor: pointer;
