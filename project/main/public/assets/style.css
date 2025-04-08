@@ -13,7 +13,7 @@ span {
 .navbar {
     position: fixed;
     top: 0;
-    width: 100%;
+    width: 90.5%;
     height: 60px;
     display: flex;
     justify-content: space-between;
@@ -185,7 +185,8 @@ body {
     max-width: 400px;
     margin: auto;
     margin-top: 80px;
-    background: oklch(94.6% 0.033 307.174);
+    /* background: oklch(94.6% 0.033 307.174); */
+    background: rgba(236, 234, 234, 0.9); /* Light transparent background */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
@@ -233,9 +234,17 @@ input[type="submit"], button {
 }
 
 .bg {
-    background: #91a7ff;
+    background: rgba(255, 255, 255, 0.9); /* Light transparent background */
+}
+.b-g{
+    background: rgba(247, 245, 245, 0.9); /* Light transparent background */
+
 }
 
 .hidden {
     display: none;
+}
+
+footer {
+    margin-top: 30px;
 }
