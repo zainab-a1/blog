@@ -24,24 +24,25 @@
 
     <div class="container hidden" id="app-container">
         <h2>Welcome</h2>
-        <button onclick="logout()">Logout</button>
+        <button style="width: 60%;" onclick="logout()">Logout</button>
         <hr>
         <h2>Create a Post</h2>
         <input type="text" id="post-title" placeholder="Title">
-        <textarea id="post-content" placeholder="Content"></textarea>
+        <textarea id="post-content" placeholder="Enter content"></textarea>
         <input type="text" id="post-category" placeholder="Category">
-        <button id ="submit-button" onclick="createPost()">Submit Post</button>
+        <button id ="submit-button" style="width: 50%; margin-bottom: 20px;" onclick="createPost()">Submit Post</button>
         <hr>
         <h2>Filter by Category</h2>
-        <select id="category-filter">
+        <select style="height: 40px;" id="category-filter">
         <option value="">All Categories</option> <!-- 🔹 Default option -->
         </select>
-        <button onclick="fetchPosts()">Reset</button> <!-- 🔹 Reset filter -->
-        <h2>Posts</h2>
+
+        <!-- <button onclick="fetchPosts()">Reset</button> 🔹 Reset filter -->
         <!-- text box for filtering, i will do this -->
-        <button onclick="fetchPosts()">Load Posts</button>
+        <button onclick="fetchPosts()" style="width: 60%;">Load Posts</button>
+        <h2 style="margin-bottom: 10px;">Posts</h2>
         <div id="posts"></div>
-    </div> 
+    </div>
     <script src="./assets/script.js"></script>
 </body>
 

@@ -2,7 +2,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
-
+const { Post } = require('./models'); // Import the Post model
+const Sequelize = require("sequelize");
 const sequelize = require("./config/connection");
 const routes = require("./routes");
 
@@ -68,6 +69,22 @@ app.post("/data", async (req, res) => {
   }
 });
 
+app.get('/categories', async (req, res) => {
+    try {
+      // Fetch distinct categories from the posts table
+      const categories = await Post.findAll({
+        attributes: [
+          [Sequelize.fn('DISTINCT', Sequelize.col('category_name')), 'categoryName']
+        ],
+        raw: true
+      });
+
+      res.json(categories);
+    } catch (error) {
+      console.error('Error fetching categories:', error);
+      res.status(500).json({ message: 'Error fetching categories' });
+    }
+});
 
 // Update a post (UPDATE)
 app.put("/data/:id", async (req, res) => {
@@ -104,6 +121,5 @@ app.use(routes);
 
 // Sync database
 sequelize.sync({ force: rebuild }).then(() => {
-  app.listen(PORT, () => console.log("Now listening"));
+  app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
 });
-

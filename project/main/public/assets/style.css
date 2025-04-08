@@ -7,8 +7,8 @@
 
 span {
     color: #B4A59B;
-
 }
+
 /* Navbar Styling */
 .navbar {
     position: fixed;
@@ -48,15 +48,10 @@ span {
     font-size: 1rem;
     font-weight: 500;
     color: #1C1C1E;
-    transition: color 0.3s ease;
-}
-
-/* Styling for Login and Register Buttons */
-.nav-links a {
     padding: 8px 20px;
     border-radius: 20px;
-    text-align: center;
     transition: all 0.3s ease;
+    text-align: center;
 }
 
 .nav-links a:hover {
@@ -166,8 +161,7 @@ span {
     }
 }
 
-------------
-
+/* Body & Containers */
 body {
     font-family: Arial, sans-serif;
     background-color: oklch(71.4% 0.203 305.504);
@@ -176,49 +170,72 @@ body {
     padding: 20px;
 }
 
+.post-btn-update {
+    background-color: darkgoldenrod;
+    width: 50%;
+}
+
+.post-btn-delete {
+    background-color: darkred;
+    width: 50%;
+    margin-bottom: 8px;
+}
+
 .container {
     max-width: 400px;
     margin: auto;
     margin-top: 80px;
     background: oklch(94.6% 0.033 307.174);
-    /* background:#e9ecef */
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 input,
 button {
     width: 90%;
-    margin: 10px 0;
-    padding: 10px;
+    margin: 5px 0;
+    padding: 8px;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
 
 input[type="text"],
-select,
-textarea {
-    width: 100%;
+select, textarea {
     border: 1px solid #ccc;
-    border-radius: 4px;
     box-sizing: border-box;
     margin-top: 6px;
     margin-bottom: 10px;
-    
 }
 
-input[type="submit"] {
+textarea {
+    width: 90%;
+}
+
+/* Input Fields Focus Effect */
+input[type="text"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #A68A64;
+    outline: none;
+}
+
+/* Submit Button */
+input[type="submit"], button {
     border: none;
     background: #4aaaa5;
     padding: 12px 20px;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
     color: #ffffff;
     font-size: 16px;
 }
-.bg{
+
+.bg {
     background: #91a7ff;
 }
+
 .hidden {
     display: none;
-}  
-/* REGISTER/LOGIN STYLING */
+}

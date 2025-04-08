@@ -68,26 +68,38 @@ function logout() {
 }
 
 function fetchPosts() {
-  fetch("http://localhost:3001/api/posts", {
-    method: "GET",
-    headers: { Authorization: `Bearer ${token}` },
-  })
-    .then((res) => res.json())
-    .then((posts) => {
-      const postsContainer = document.getElementById("posts");
-      postsContainer.innerHTML = "";
-      posts.forEach((post) => {
-        const div = document.createElement("div");
-        div.innerHTML = `
-          <h3>${post.title}</h3>
-          <p>${post.content}</p>
-          <small>By: ${post.postedBy} on ${new Date(post.createdOn).toLocaleString()}</small>
-          <button onclick="updatePost(${post.id})">Update</button>
-          <button onclick="deletePost(${post.id})">Delete</button>
-        `;
-        postsContainer.appendChild(div);
+    const category = document.getElementById("category-filter").value;
+    let url = "http://localhost:3001/api/posts";
+
+    fetchCategories();
+    if (category) {
+      url += `?category=${category}`;
+    }
+
+    fetch(url, {
+      method: "GET",
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((res) => res.json())
+      .then((posts) => {
+        const postsContainer = document.getElementById("posts");
+        postsContainer.innerHTML = "";
+
+        posts.forEach((post) => {
+          const div = document.createElement("div");
+          div.innerHTML = `
+            <h3>${post.title}</h3>
+            <p>${post.content}</p>
+            <small>By: ${post.postedBy} on ${new Date(post.createdOn).toLocaleString()}</small>
+            <button class="post-btn-update" onclick="updatePost(${post.id})">Update</button>
+            <button class="post-btn-delete" onclick="deletePost(${post.id})">Delete</button>
+          `;
+          postsContainer.appendChild(div);
+        });
+      })
+      .catch((err) => {
+        console.error("Error fetching posts:", err);
       });
-    });
 }
 
 function updatePost(postId) {
@@ -134,17 +146,34 @@ function deletePost(postId) {
   }
 }
 
+function fetchCategories() {
+    fetch("http://localhost:3001/categories", {
+        method: "GET",
+    }).then(res => res.json()).then(data => {
+
+        const categorySelect = document.getElementById('category-filter');
+        categorySelect.innerHTML = '<option value="">All Categories</option>';
+        data.forEach(category => {
+            const option = document.createElement('option');
+            option.value = category.categoryName;
+            option.textContent = category.categoryName;
+            categorySelect.appendChild(option);
+        });
+    })
+}
+
 function createPost() {
   const title = document.getElementById("post-title").value;
   const content = document.getElementById("post-content").value;
-  const category= document.getElementById("post-category").value;
+  const categoryName= document.getElementById("post-category").value;
+
   fetch("http://localhost:3001/api/posts", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ title, content, category, postedBy: "User" }),
+    body: JSON.stringify({ title, content, categoryName, postedBy: "User" }),
   })
     .then((res) => res.json())
     .then(() => {
